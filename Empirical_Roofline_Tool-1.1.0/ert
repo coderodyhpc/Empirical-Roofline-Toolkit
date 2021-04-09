@@ -16,12 +16,14 @@ ert = ert_core()
 
 # Initialize the execution path
 ert.exe_path = exe_path
+print (exe_path)
 
 # Parse the command line
 if ert.flags() != 0:
   sys.stderr.write("\n--- Parsing command line arguments failed --- \n\n")
   sys.exit(1)
 sys.stdout.flush()
+print ("After parsing")
 
 # Configure the ERT using the configuration file given on the command line
 if ert.configure() != 0:
