@@ -6,6 +6,8 @@ ERT_DRIVER  driver1
 ERT_KERNEL  kernel1
 
 ERT_MPI         True
+ERT_MPI_CFLAGS  
+ERT_MPI_LDFLAGS
 
 ERT_FLOPS   1,2,4,8,16
 ERT_ALIGN   32
@@ -17,7 +19,7 @@ ERT_LD      mpiicc
 ERT_LDFLAGS 
 ERT_LDLIBS
 
-ERT_RUN     ./ERT_CODE
+ERT_RUN     mpirun -n ERT_MPI_PROCS ./ert
 
 ERT_MPI_PROCS      1
 
