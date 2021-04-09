@@ -20,6 +20,17 @@ def parse_int_list(input):
 
   return sorted(list(set(retlist)))
 
+# Make a new directory if it doesn't already exist
+def make_dir_if_needed(dir,name,echo=True):
+  if not os.path.exists(dir):
+    command = ["mkdir",dir]
+    if execute_noshell(command,echo) != 0:
+      sys.stderr.write("Unable to make %s directory, %s\n" % (name,dir))
+  else:
+    return False
+
+  return True
+
 # Get the path to the directory where this was run
 exe_path = os.path.dirname(sys.argv[0])
 if exe_path == "":
