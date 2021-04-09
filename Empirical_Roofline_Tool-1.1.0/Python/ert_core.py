@@ -286,7 +286,7 @@ class ert_core:
       if self.options.verbose > 0:
         if self.options.verbose > 1:
           print
-        print "  Running ERT core code..."
+        print ("  Running ERT core code...")
 
     self.run_list = []
 
@@ -384,10 +384,10 @@ class ert_core:
                 if self.options.run:
                   if os.path.exists("%s/run.done" % run_dir):
                     if self.options.verbose > 1:
-                      print "    Skipping %s - already run" % print_str
+                      print ("    Skipping %s - already run" % print_str)
                   else:
                     if self.options.verbose > 0:
-                      print "    %s" % print_str
+                      print ("    %s" % print_str)
 
                     command = base_command
 
@@ -635,7 +635,7 @@ class ert_core:
   def roofline(self):
     if self.options.post:
       if self.options.verbose > 0:
-        print "Gathering the final roofline results..."
+        print ("Gathering the final roofline results...")
 
       depth_string = "/*"
       if self.dict["CONFIG"]["ERT_MPI"][0] == "True":
@@ -700,7 +700,7 @@ class ert_core:
 
         ymin = 10 ** int(math.floor(math.log10(gbytes_emp[0][0] * xmin)))
 
-        title = "Empirical Roofline Graph (%s)" % self.results_dir
+        title = ("Empirical Roofline Graph (%s)" % self.results_dir)
 
         command  = "sed "
         command += "-e 's#ERT_TITLE#%s#g' " % title
@@ -782,9 +782,9 @@ class ert_core:
         print
         print "+-------------------------------------------------"
         if self.options.gnuplot:
-          print "| Empirical roofline graph:    '%s/roofline.ps'"   % self.results_dir
-        print "| Empirical roofline database: '%s/roofline.json'" % self.results_dir
-        print "+-------------------------------------------------"
+          print ("| Empirical roofline graph:    '%s/roofline.ps'"   % self.results_dir)
+        print ("| Empirical roofline database: '%s/roofline.json'" % self.results_dir)
+        print ("+-------------------------------------------------")
         print
 
     return 0
