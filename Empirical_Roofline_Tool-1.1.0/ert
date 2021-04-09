@@ -23,7 +23,6 @@ if ert.flags() != 0:
   sys.stderr.write("\n--- Parsing command line arguments failed --- \n\n")
   sys.exit(1)
 sys.stdout.flush()
-print ("After parsing")
 
 # Configure the ERT using the configuration file given on the command line
 if ert.configure() != 0:
@@ -33,6 +32,7 @@ sys.stdout.flush()
 
 # Get the list of flops/element to try (specified by the user)
 flops_list = parse_int_list(ert.dict["CONFIG"]["ERT_FLOPS"][0])
+print ("flop-elements")
 
 # Go through the flops/element list and process each case
 for flop in flops_list:
