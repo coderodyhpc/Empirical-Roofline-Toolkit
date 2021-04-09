@@ -98,7 +98,7 @@ class ert_core:
   def configure(self):
     if self.options.verbose > 0:
       print
-      print "Reading configuration from '%s'..." % self.configure_filename
+      print ("Reading configuration from '%s'..." % self.configure_filename)
 
     try:
       configure_file = open(self.configure_filename,"r")
@@ -134,9 +134,9 @@ class ert_core:
 
     if self.options.verbose > 0:
       if made_results:
-        print "  Making new results directory, %s..." % self.results_dir
+        print ("  Making new results directory, %s..." % self.results_dir)
       else:
-        print "  Using existing results directory, %s..." % self.results_dir
+        print ("  Using existing results directory, %s..." % self.results_dir)
 
     run_files = glob.glob("%s/Run.[0-9][0-9][0-9]" % self.results_dir)
     used_run_files = []
@@ -149,7 +149,7 @@ class ert_core:
           self.results_dir = run_file
           no_dir = False
           if self.options.verbose > 0:
-            print "    Using existing run directory, %s..." % self.results_dir
+            print ("    Using existing run directory, %s..." % self.results_dir)
           break
         else:
           used_run_files.append(run_file)
@@ -167,19 +167,19 @@ class ert_core:
             self.results_dir = "%s/Run.%03d" % (self.results_dir,n)
             if self.options.verbose > 0:
               if made_results:
-                print "    Making new run directory, '%s'..." % self.results_dir
+                print ("    Making new run directory, '%s'..." % self.results_dir)
               else:
                 print
-                print "*** WARNING ***"
-                print "**"
-                print "**  Making new run directory, '%s'," % self.results_dir
-                print "**    because the current connfiguration file, '%s' " % self.configure_filename
-                print "**    doesn't match the configuration files, 'config.ert', under:"
-                print "**"
+                print ("*** WARNING ***")
+                print ("**")
+                print ("**  Making new run directory, '%s'," % self.results_dir)
+                print ("**    because the current connfiguration file, '%s' " % self.configure_filename)
+                print ("**    doesn't match the configuration files, 'config.ert', under:")
+                print ("**")
                 for u in sorted(used_run_files):
-                  print "**      %s" % u
-                print "**"
-                print "*** WARNING ***"
+                  print ("**      %s" % u)
+                print ("**")
+                print ("*** WARNING ***")
 
             command = ["mkdir",self.results_dir]
             if execute_noshell(command,self.options.verbose > 1) != 0:
