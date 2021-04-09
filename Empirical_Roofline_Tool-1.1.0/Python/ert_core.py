@@ -1,7 +1,7 @@
 import sys,operator,subprocess,os,glob,filecmp,math
 import socket,platform,time,json,optparse,ast
 
-from ert_utils import *
+from ert_utils import list_2_string,execute_noshell,execute_shell,stdout_noshell,stdout_shell,parse_int_list,make_dir_if_needed
 
 def text_list_2_string(text_list):
   return reduce(operator.add,[t+" " for t in text_list])
