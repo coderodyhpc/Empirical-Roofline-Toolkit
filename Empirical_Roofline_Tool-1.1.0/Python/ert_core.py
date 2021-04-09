@@ -429,11 +429,11 @@ class ert_core:
   def process(self):
     if self.options.post:
       if self.options.verbose > 0:
-        print "  Processing results..."
+        print ("  Processing results...")
 
       for run in self.run_list:
         if self.options.verbose > 1:
-          print "   ",run
+          print ("   ",run)
 
         command = ["cat %s/try.* | %s/Scripts/preprocess.py > %s/pre" % (run,self.exe_path,run)]
         if execute_shell(command,self.options.verbose > 1) != 0:
