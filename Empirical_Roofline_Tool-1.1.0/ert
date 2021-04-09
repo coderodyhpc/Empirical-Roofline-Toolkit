@@ -4,8 +4,8 @@
 import sys,os.path
 
 # Import ERT python modules
+from Python.ert_utils import ert_utils
 from Python.ert_core  import ert_core
-#from Python.ert_utils import *
 
 # Get the path to the directory where this was run
 exe_path = os.path.dirname(sys.argv[0])
