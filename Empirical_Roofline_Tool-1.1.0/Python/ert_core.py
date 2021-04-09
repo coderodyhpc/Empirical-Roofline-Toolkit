@@ -780,7 +780,7 @@ class ert_core:
 
       if self.options.verbose > 0:
         print
-        print "+-------------------------------------------------"
+        print ("+-------------------------------------------------")
         if self.options.gnuplot:
           print ("| Empirical roofline graph:    '%s/roofline.ps'"   % self.results_dir)
         print ("| Empirical roofline database: '%s/roofline.json'" % self.results_dir)
