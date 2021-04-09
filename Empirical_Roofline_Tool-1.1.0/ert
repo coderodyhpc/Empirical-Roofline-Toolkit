@@ -4,7 +4,7 @@
 import sys,os.path
 
 # Import ERT python modules
-from Python.ert_utils import ert_utils
+from Python.ert_utils import *
 from Python.ert_core  import ert_core
 
 # Get the path to the directory where this was run
