@@ -6,6 +6,20 @@ import sys,os.path
 # Import ERT python modules
 from Python.ert_core  import ert_core
 
+def parse_int_list(input):
+  retlist = []
+
+  elems = input.replace(" ","").replace("\t","").split(",")
+  for elem in elems:
+    minmax = elem.split("-")
+    if len(minmax) == 1:
+      retlist.append(int(minmax[0]))
+    else:
+      for i in xrange(int(minmax[0]),int(minmax[1])+1):
+        retlist.append(i)
+
+  return sorted(list(set(retlist)))
+
 # Get the path to the directory where this was run
 exe_path = os.path.dirname(sys.argv[0])
 if exe_path == "":
