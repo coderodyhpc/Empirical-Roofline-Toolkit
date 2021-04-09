@@ -256,7 +256,7 @@ class ert_core:
       if self.options.build or self.options.run:
         if len(used_run_list) == 0:
           used_run_list = [0]
-        for n in xrange(1,max(used_run_list)+2):
+        for n in range(1,max(used_run_list)+2):
           if n not in used_run_list:
             self.results_dir = "%s/Run.%03d" % (self.results_dir,n)
             if self.options.verbose > 0:
@@ -495,7 +495,7 @@ class ert_core:
 
                     command = "(" + command + ") > %s/try.ERT_TRY_NUM 2>&1 " % run_dir
 
-                    for t in xrange(1,num_experiments+1):
+                    for t in range(1,num_experiments+1):
                       output = "%s/try.%03d" % (run_dir,t) 
 
                       cur_command = command
@@ -770,19 +770,19 @@ class ert_core:
       line = gflop_lines[0].split()
       gflops_emp = [float(line[0]),line[1]]
 
-      for i in xrange(0,len(gbyte_lines)):
+      for i in range(0,len(gbyte_lines)):
         if gbyte_lines[i] == "META_DATA":
           break
 
       num_mem = i
       gbytes_emp = num_mem * [0]
 
-      for i in xrange(0,num_mem):
+      for i in range(0,num_mem):
         line = gbyte_lines[i].split()
         gbytes_emp[i] = [float(line[0]),line[1]]
 
       x = num_mem * [0.0]
-      for i in xrange(0,len(gbytes_emp)):
+      for i in range(0,len(gbytes_emp)):
         x[i] = gflops_emp[0]/gbytes_emp[i][0]
 
       if self.options.gnuplot:
@@ -833,7 +833,7 @@ class ert_core:
         alpha = 1.065
 
         label_over = True
-        for i in xrange(0,len(gbytes_emp)):
+        for i in range(0,len(gbytes_emp)):
           if i > 0:
             if label_over and gbytes_emp[i-1][0] / gbytes_emp[i][0] < 1.5:
               label_over = False
@@ -860,7 +860,7 @@ class ert_core:
 
         plotfile.write("plot \\\n")
 
-        for i in xrange(0,len(gbytes_emp)):
+        for i in range(0,len(gbytes_emp)):
           plotfile.write("     (x <= %.7le ? %.7le * x : 1/0) lc 1 lw 2,\\\n" % (x[i],gbytes_emp[i][0]))
 
         plotfile.write("     (x >= %.7le ? %.7le : 1/0) lc 3 lw 2\n" % (x[0],gflops_emp[0]))
