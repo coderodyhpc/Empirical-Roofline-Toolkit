@@ -206,7 +206,7 @@ class ert_core:
       if self.options.verbose > 0:
         if self.options.verbose > 1:
           print
-        print "  Building ERT core code..."
+        print ("  Building ERT core code...")
 
       command_prefix =                                                       \
         self.dict["CONFIG"]["ERT_CC"]                                                + \
