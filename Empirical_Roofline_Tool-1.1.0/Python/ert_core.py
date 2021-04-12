@@ -330,7 +330,9 @@ class ert_core:
       command = command_prefix + \
                 ["-c","/home/centos/Empirical-Roofline-Toolkit/Empirical_Roofline_Tool-1.1.0/Drivers/driver1.c"] + \
                 ["-o","%s/%s.o" % (self.flop_dir,self.dict["CONFIG"]["ERT_DRIVER"][0])]
-      print("Failed command", command)
+      print("COMMAND 1 ", command)
+      print (" ")
+      print (" ")
       if execute_noshell(command,self.options.verbose > 1) != 0:
         sys.stderr.write("Compiling driver, %s, failed\n" % self.dict["CONFIG"]["ERT_DRIVER"][0])
         return 1
@@ -338,12 +340,18 @@ class ert_core:
       command = command_prefix + \
                 ["-c","%s/Kernels/%s.c" % (self.exe_path,self.dict["CONFIG"]["ERT_KERNEL"][0])] + \
                 ["-o","%s/%s.o" % (self.flop_dir,self.dict["CONFIG"]["ERT_KERNEL"][0])]
+      print("COMMAND 2 ", command)
+      print (" ")
+      print (" ")
       if execute_noshell(command,self.options.verbose > 1) != 0:
         sys.stderr.write("Compiling kernel, %s, failed\n" % self.dict["CONFIG"]["ERT_KERNEL"][0])
         return 1
 
       command = self.dict["CONFIG"]["ERT_LD"]      + \
                 self.dict["CONFIG"]["ERT_LDFLAGS"]
+      print("COMMAND 3 ", command)
+      print (" ")
+      print (" ")
 
       if self.dict["CONFIG"]["ERT_MPI"][0] == "True":
         command += self.dict["CONFIG"]["ERT_MPI_LDFLAGS"]
