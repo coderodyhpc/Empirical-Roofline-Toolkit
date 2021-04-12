@@ -312,6 +312,9 @@ class ert_core:
         ["-DERT_WORKING_SET_MIN=%s" % self.dict["CONFIG"]["ERT_WORKING_SET_MIN"][0]] + \
         ["-DERT_TRIALS_MIN=%s" % self.dict["CONFIG"]["ERT_TRIALS_MIN"][0]]
 
+      print ("COMMAND PREFIX = ",command_prefix)
+      print (" ")
+      print (" ")
       if self.dict["CONFIG"]["ERT_MPI"][0] == "True":
         command_prefix += ["-DERT_MPI"] + self.dict["CONFIG"]["ERT_MPI_CFLAGS"]
 
