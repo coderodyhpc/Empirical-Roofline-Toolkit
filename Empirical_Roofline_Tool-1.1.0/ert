@@ -128,11 +128,17 @@ for flop in flops_list:
     sys.stdout.flush()
 
   # Set the ERT object flops/element
+  print ("Setting ERT object ",flop)
+  print (" ")
+  print (" ")
   ert.flop = flop
 
   # Create a directory for these experiments (and give it to the ERT object)
   ert.flop_dir = "%s/FLOPS.%03d" % (ert.results_dir,flop)
   make_dir_if_needed(ert.flop_dir,"run",ert.options.verbose > 1)
+  print ("Creating directory ",ert.flop_dir)
+  print (" ")
+  print (" ")
 
   # Build the current code with the current flops/element
   if ert.build() != 0:
