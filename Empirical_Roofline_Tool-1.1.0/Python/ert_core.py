@@ -312,9 +312,9 @@ class ert_core:
         ["-DERT_WORKING_SET_MIN=%s" % self.dict["CONFIG"]["ERT_WORKING_SET_MIN"][0]] + \
         ["-DERT_TRIALS_MIN=%s" % self.dict["CONFIG"]["ERT_TRIALS_MIN"][0]]
 
-      print ("COMMAND PREFIX = ",command_prefix)
-      print (" ")
-      print (" ")
+#      print ("COMMAND PREFIX = ",command_prefix)
+#      print (" ")
+#      print (" ")
       if self.dict["CONFIG"]["ERT_MPI"][0] == "True":
         command_prefix += ["-DERT_MPI"] + self.dict["CONFIG"]["ERT_MPI_CFLAGS"]
 
@@ -328,7 +328,7 @@ class ert_core:
 #                ["-c","%s/Drivers/%s.c" % (self.exe_path,self.dict["CONFIG"]["ERT_DRIVER"][0])] + \
 #                ["-o","%s/%s.o" % (self.flop_dir,self.dict["CONFIG"]["ERT_DRIVER"][0])]
       command = command_prefix + \
-                ["-c","/home/centos/Empirical-Roofline-Toolkit/Empirical_Roofline_Tool-1.1.0/Drivers/%s.c" % (self.exe_path,self.dict["CONFIG"]["ERT_DRIVER"][0])] + \
+                ["-c","/home/centos/Empirical-Roofline-Toolkit/Empirical_Roofline_Tool-1.1.0/Drivers/driver1.c"] + \
                 ["-o","%s/%s.o" % (self.flop_dir,self.dict["CONFIG"]["ERT_DRIVER"][0])]
       print("Failed command", command)
       if execute_noshell(command,self.options.verbose > 1) != 0:
