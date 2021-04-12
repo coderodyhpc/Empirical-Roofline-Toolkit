@@ -13,7 +13,7 @@ ERT_FLOPS   1,2,4,8,16
 ERT_ALIGN   32
 
 ERT_CC      mpiicc
-ERT_CFLAGS  -fast
+ERT_CFLAGS  -O3
 
 ERT_LD      mpiicc
 ERT_LDFLAGS 
